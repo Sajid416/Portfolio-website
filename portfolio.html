@@ -824,49 +824,18 @@
         });
 
         // Download CV function
-        function downloadCV() {
-            // Create a blob with CV content
-            const cvContent = `
-SAJIDUL ISLAM RONJU
-Software Engineer Intern at TechnoNext Software Ltd
-Phone: +8801768-434525
-Email: sajidulislam6183@gmail.com
+         function downloadCV() {
+        // Replace 'cv.pdf' with the actual file name and path
+        const cvPath = 'Sajidul-Islam.pdf'; // If stored in same folder as index.html
+        // const cvPath = 'assets/cv.pdf'; // If stored inside an assets folder
 
-EDUCATION:
-• Bachelor of Computer Science and Engineering
-  Rajshahi University of Engineering & Technology (2018-2024)
-  CGPA: 3.33/4.0
-
-SKILLS:
-• Programming Languages: C, C++, Python, JavaScript, Go
-• Web Development: React.js, HTML, CSS, Tailwind CSS, MySQL
-• Backend: Golang (Gin & Fiber), JWT Authentication
-• Core Concepts: Data Structures, Algorithms, Computer Networks, OOP
-
-PROJECTS:
-• Rice Leaf Diseases Classification using CNN with Transfer Learning
-• Full-Stack User Authentication System (React.js, Golang, MySQL)
-• Blog Website Platform with dual API architecture
-
-PROBLEM SOLVING:
-• 110+ problems solved on Codeforces
-• 80+ problems solved on LeetCode
-• 50+ problems solved on HackerEarth
-
-For complete details, please contact me directly.
-            `;
-            
-            const blob = new Blob([cvContent], { type: 'text/plain' });
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.style.display = 'none';
-            a.href = url;
-            a.download = 'Sajidul_Islam_Ronju_CV.txt';
-            document.body.appendChild(a);
-            a.click();
-            window.URL.revokeObjectURL(url);
-        }
-
+        const link = document.createElement('a');
+        link.href = cvPath;
+        link.download = 'My_CV.pdf'; // This will be the downloaded file name
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
         // Intersection Observer for animations
         const observerOptions = {
             threshold: 0.1,
